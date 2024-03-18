@@ -10,7 +10,6 @@ import styles from "./ImageFetcher.module.css";
 export default function ImageFetcher({
   onDecrementScore,
   onIncrementScore,
-  isBlocked,
 }: {
   onDecrementScore: () => void;
   onIncrementScore: () => void;
@@ -26,7 +25,6 @@ export default function ImageFetcher({
   //   }, []);
 
   const handleClick = (type: ImageType) => {
-    if (isBlocked) return;
     if (type === "fox") {
       onIncrementScore();
     } else {
