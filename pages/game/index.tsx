@@ -5,10 +5,13 @@ import { useRouter } from "next/router";
 import { GameContext, DataItem } from "@state/GameContext";
 import ImageFetcher from "@components/ImageFetcher/ImageFetcher";
 import { Counter } from "@components/Counter/Counter";
+import { fetchImageData } from "./fetchData";
+import { ImageI } from "types";
+
 import styles from "@pages/index.module.css";
 
 export const PlAY_TIME_MS = 30 * 1000;
-export default function Game() {
+export default function Game({ data }: { data: ImageI[] }) {
   const [score, setScore] = useState<number>(0);
   const [countdown, setCountdown] = useState<number>(Date.now() + PlAY_TIME_MS);
   const { state, setState } = useContext(GameContext);
@@ -52,10 +55,18 @@ export default function Game() {
         <ImageFetcher
           onDecrementScore={() => setScore(score - 1)}
           onIncrementScore={() => setScore(score + 1)}
+          data={data}
         />
       </main>
 
       <footer className={styles.footer}></footer>
     </div>
   );
+}
+
+export async function getStaticProps({}) {
+  // Fetch data here
+  const res = await fetchImageData();
+
+  return { props: { data: res }, revalidate: 10 }; // Optional: Revalidate at most once every 10 seconds
 }

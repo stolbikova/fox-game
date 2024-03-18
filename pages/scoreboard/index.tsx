@@ -22,7 +22,6 @@ export default function Scoreboard() {
     router.push("/welcome");
   };
 
-  console.log(state);
   return (
     <div className={styles.container}>
       <Head>

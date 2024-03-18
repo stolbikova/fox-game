@@ -1,28 +1,24 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { useFetchData } from "app/hooks/useFetchData";
 import { ImageType } from "types";
 import { shuffle } from "app/utils/shuffle";
+import { ImageI } from "types";
 
 import styles from "./ImageFetcher.module.css";
 
 export default function ImageFetcher({
   onDecrementScore,
   onIncrementScore,
+  data,
 }: {
   onDecrementScore: () => void;
   onIncrementScore: () => void;
+  data: ImageI[];
 }) {
-  const [fetchTrigger, setFetchTrigger] = useState<number>(1);
   const [page, setPage] = useState(1);
-  const { data, isLoading, error } = useFetchData(fetchTrigger);
 
   const shuffledData = shuffle(data.slice((page - 1) * 9, (page - 1) * 9 + 9));
-
-  //   useEffect(() => {
-  //     setFetchTrigger((prev) => prev + 1);
-  //   }, []);
 
   const handleClick = (type: ImageType) => {
     if (type === "fox") {
@@ -31,8 +27,6 @@ export default function ImageFetcher({
       onDecrementScore();
     }
     setPage(page + 1);
-
-    // setFetchTrigger((prev) => prev + 1);
   };
 
   if (page > 60) {
