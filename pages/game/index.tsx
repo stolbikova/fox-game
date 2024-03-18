@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { GameContext } from "@state/GameContext";
+import { GameContext, DataItem } from "@state/GameContext";
 import ImageFetcher from "@components/ImageFetcher/ImageFetcher";
 import { Counter } from "@components/Counter/Counter";
 import styles from "@pages/index.module.css";
@@ -15,11 +15,10 @@ export default function Game() {
   const router = useRouter();
 
   const handleExpire = () => {
-    const newItem = {
-      ...state.data.find((i) => i.name === state.currentPlayer),
-    };
-
-    newItem.score = score;
+    const newItem: DataItem | undefined = state.data.find(
+      (i) => i.name === state.currentPlayer
+    );
+    if (newItem) newItem.score = score;
 
     const newData = [
       ...state.data.filter((i) => i.name !== state.currentPlayer),

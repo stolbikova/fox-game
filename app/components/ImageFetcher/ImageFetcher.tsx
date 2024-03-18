@@ -43,9 +43,8 @@ export default function ImageFetcher({
     <div className={styles.imageContainer}>
       {shuffledData.map((img, idx) => (
         <Image
-          lazy={"true"}
+          loading="lazy"
           alt={`${img.type}-idx`}
-          srcSet="picture"
           src={img.url}
           width={200}
           height={200}
