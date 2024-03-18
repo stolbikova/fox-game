@@ -10,22 +10,14 @@ This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScri
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-jest&project-name=with-jest&repository-name=with-jest)
 
-## How to Use
-
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
-
-In your terminal, run the following command:
+## Run
 
 ```bash
-npx create-next-app --example with-jest with-jest-app
+npm run dev
 ```
 
 ```bash
-yarn create next-app --example with-jest with-jest-app
-```
-
-```bash
-pnpm create next-app --example with-jest with-jest-app
+yarn dev
 ```
 
 ## Running Tests

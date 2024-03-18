@@ -1,0 +1,21 @@
+.image {
+    object-fit: cover;
+    background-color: lightgrey; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+  }
+
+  .disabled {
+    filter: grayscale(100%);
+  }
+  
+  .imageContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    min-height: 700px;
+  }
+  
