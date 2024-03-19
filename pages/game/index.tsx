@@ -5,28 +5,23 @@ import { useRouter } from "next/router";
 import { GameContext, DataItem } from "@state/GameContext";
 import ImageFetcher from "@components/ImageFetcher/ImageFetcher";
 import { Counter } from "@components/Counter/Counter";
-import { fetchImageData } from "./fetchData";
+import { fetchImageData } from "../../app/utils/fetchData";
 import { ImageI } from "types";
 
 import styles from "@pages/index.module.css";
 
 export const PlAY_TIME_MS = 30 * 1000;
+
 export default function Game({ data }: { data: ImageI[] }) {
   const [score, setScore] = useState<number>(0);
-  const [countdown, setCountdown] = useState<number>(Date.now() + PlAY_TIME_MS);
+  const [countdown] = useState<number>(Date.now() + PlAY_TIME_MS);
   const { state, setState } = useContext(GameContext);
   const router = useRouter();
 
   const handleExpire = () => {
-    const newItem: DataItem | undefined = state.data.find(
-      (i) => i.name === state.currentPlayer
-    );
-    if (newItem) newItem.score = score;
+    let newData = [...state.data];
 
-    const newData = [
-      ...state.data.filter((i) => i.name !== state.currentPlayer),
-    ];
-    if (newItem) newData.push(newItem);
+    newData[state.data.length - 1].score = score;
 
     setState({
       ...state,

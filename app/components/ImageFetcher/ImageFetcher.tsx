@@ -1,9 +1,6 @@
-import Head from "next/head";
-import Image from "next/image";
-import { useState, useEffect } from "react";
-import { ImageType } from "types";
-import { shuffle } from "app/utils/shuffle";
-import { ImageI } from "types";
+import { useState } from "react";
+import { ImageType, ImageI } from "types";
+import { shuffle } from "@utils/shuffle";
 
 import styles from "./ImageFetcher.module.css";
 
@@ -36,9 +33,9 @@ export default function ImageFetcher({
   return (
     <div className={styles.imageContainer}>
       {shuffledData.map((img, idx) => (
-        <Image
+        <img
           loading="lazy"
-          alt={`${img.type}-idx`}
+          alt={String(idx)}
           src={img.url}
           width={200}
           height={200}

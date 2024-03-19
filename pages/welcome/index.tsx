@@ -19,12 +19,8 @@ export default function Welcome() {
         score: 0,
         date: new Date().toDateString(),
       };
-      const item = state.data.find((i) => i.name === name);
-
       let newData = [...state.data];
-      if (item) {
-        newData = newData.filter((i) => i.name !== name);
-      }
+
       newData.push(newItemData);
       setState({ data: newData, currentPlayer: name });
 
@@ -45,8 +41,13 @@ export default function Welcome() {
         <h1 className={styles.title}>Click the Fox! Game</h1>
 
         <div className={styles.inputWrap}>
-          <InputLabel>Name:</InputLabel>
-          <Input autoFocus color="primary" onChange={handleChangeName} />
+          <InputLabel htmlFor="name-input">Name:</InputLabel>
+          <Input
+            id="name-input"
+            autoFocus
+            color="primary"
+            onChange={handleChangeName}
+          />
         </div>
         <Button
           color="primary"

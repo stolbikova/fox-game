@@ -3,12 +3,6 @@ const domainNumbers = Array.from({ length: 45 }, (_, i) => `${i + 1}.media.tumbl
 
 module.exports = {
   images: {
-    // domains: [
-    //   "cdn2.thecatapi.com", 
-    //   "images.dog.ceo", 
-    //   "randomfox.ca",
-    //   ...domainNumbers
-    // ],
     remotePatterns: [
       {
         protocol: 'https',
@@ -22,6 +16,10 @@ module.exports = {
         protocol: 'https',
         hostname: 'randomfox.ca',
       },
+      {
+        protocol: 'https',
+        hostname: '24.media.tumblr.com'
+      }
     ],
   },
 };

@@ -4,7 +4,7 @@ import {
   CatApiResponse,
   DogApiResponse,
   FoxApiResponse,
-} from "types";
+} from "../../types";
 
 const urls = [
   process.env.NEXT_PUBLIC_CAT_API,
