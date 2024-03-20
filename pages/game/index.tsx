@@ -60,8 +60,7 @@ export default function Game({ data }: { data: ImageI[] }) {
 }
 
 export async function getStaticProps({}) {
-  // Fetch data here
   const res = await fetchImageData();
 
-  return { props: { data: res }, revalidate: 10 }; // Optional: Revalidate at most once every 10 seconds
+  return { props: { data: res }, revalidate: 10 };
 }

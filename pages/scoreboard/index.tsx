@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
@@ -15,8 +15,12 @@ import {
 import styles from "@pages/index.module.css";
 
 export default function Scoreboard() {
+  const [isClientReady, setIsClientReady] = useState(false);
   const { state, setState } = useContext(GameContext);
   const router = useRouter();
+  useEffect(() => {
+    setIsClientReady(true);
+  }, []);
 
   const handleClickPlayScreen = () => {
     const newData = [...state.data];
@@ -35,6 +39,9 @@ export default function Scoreboard() {
     router.push("/welcome");
   };
 
+  if (!isClientReady) return <div>Loading...</div>;
+
+  const current = state.data[state.data.length - 1];
   return (
     <div className={styles.container}>
       <Head>
@@ -53,12 +60,13 @@ export default function Scoreboard() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {state.data
+            {[...state.data]
               .sort((a, b) => (a.score > b.score ? -1 : 1))
               .map((row, idx) => (
                 <TableRow
                   key={idx}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  className={current === row ? styles.activeRow : ""}
                 >
                   <TableCell component="th" scope="row">
                     {row.name}

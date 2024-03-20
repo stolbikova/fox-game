@@ -48,6 +48,11 @@
   margin-bottom: 20px;
 }
 
+.activeRow {
+  background-color: #E5EAF2;
+}
+
 @media (max-width: 600px) {
 
 }
+
