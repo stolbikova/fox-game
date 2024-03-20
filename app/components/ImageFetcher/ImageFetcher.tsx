@@ -37,8 +37,6 @@ export default function ImageFetcher({
           loading="lazy"
           alt={String(idx)}
           src={img.url}
-          width={200}
-          height={200}
           key={idx}
           className={`${styles.image}`}
           onClick={() => handleClick(img.type)}

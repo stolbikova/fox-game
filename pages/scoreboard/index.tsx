@@ -55,8 +55,8 @@ export default function Scoreboard() {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell align="right">Date</TableCell>
-              <TableCell align="right">Score</TableCell>
+              <TableCell align="center">Date</TableCell>
+              <TableCell align="center">Score</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
