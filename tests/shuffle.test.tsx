@@ -1,4 +1,4 @@
-import { shuffle } from "./shuffle";
+import { shuffle } from "../app/utils/shuffle";
 
 describe("shuffle function", () => {
   it("returns an array of the same length as the input", () => {

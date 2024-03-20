@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { ImageType } from "types";
-import ImageFetcher from "./ImageFetcher";
+import ImageFetcher from "../app/components/ImageFetcher/ImageFetcher";
 
 // Mock data
 const mockData = [

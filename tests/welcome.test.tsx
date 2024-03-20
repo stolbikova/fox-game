@@ -1,6 +1,6 @@
 import { render, fireEvent } from "@testing-library/react";
 
-import Welcome from "./index";
+import Welcome from "../pages/welcome/index";
 
 jest.mock("next/router", () => require("next-router-mock"));
 

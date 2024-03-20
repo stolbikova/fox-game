@@ -1,5 +1,5 @@
 import { act, renderHook } from "@testing-library/react-hooks";
-import { useCountdown } from "./useCountdown";
+import { useCountdown } from "../app/hooks/useCountdown";
 
 beforeAll(() => {
   jest.useFakeTimers();

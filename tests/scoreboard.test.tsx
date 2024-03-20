@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import Scoreboard from "./index";
+import Scoreboard from "../pages/scoreboard/index";
 import { GameContext } from "@state/GameContext";
 
 jest.mock("next/router", () => ({

@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Counter from "./Counter";
+import Counter from "../app/components/Counter/Counter";
 
 describe("Counter", () => {
   it("displays the remaining time", async () => {
