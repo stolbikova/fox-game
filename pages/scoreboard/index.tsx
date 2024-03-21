@@ -16,23 +16,13 @@ import styles from "@pages/index.module.css";
 
 export default function Scoreboard() {
   const [isClientReady, setIsClientReady] = useState(false);
-  const { state, setState } = useContext(GameContext);
+  const { state } = useContext(GameContext);
   const router = useRouter();
   useEffect(() => {
     setIsClientReady(true);
   }, []);
 
   const handleClickPlayScreen = () => {
-    const newData = [...state.data];
-    newData.push({
-      name: state.currentPlayer,
-      score: 0,
-      date: new Date().toDateString(),
-    });
-    setState({
-      ...state,
-      data: newData,
-    });
     router.push("/game");
   };
   const handleClickWelcomeScreen = () => {

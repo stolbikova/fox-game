@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
@@ -24,6 +24,24 @@ export default function Game({ data }: { data: ImageI[] }) {
   const [countdown] = useState<number>(Date.now() + PlAY_TIME_MS);
   const { state, setState } = useContext(GameContext);
   const router = useRouter();
+
+  useEffect(() => {
+    if (
+      typeof window !== undefined &&
+      document.referrer.includes("scoreboard")
+    ) {
+      const newData = [...state.data];
+      newData.push({
+        name: state.currentPlayer,
+        score: 0,
+        date: new Date().toDateString(),
+      });
+      setState({
+        ...state,
+        data: newData,
+      });
+    }
+  }, []);
 
   const handleExpire = () => {
     let newData = [...state.data];
