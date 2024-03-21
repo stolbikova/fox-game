@@ -1,14 +1,14 @@
-# Next.js + Jest
+# Fox game
 
-This example shows how to configure Jest to work with Next.js.
+Start from welcome screen
+http://localhost:3000/welcome
+Play button is blocked until name is typed in the input field
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript. This example also shows how to use Jest with the App Router and React Server Components.
-
-> **Note:** Since tests can be co-located alongside other files inside the App Router, we have placed those tests in `app/` to demonstrate this behavior (which is different than `pages/`). You can still place all tests in `__tests__` if you prefer.
-
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-jest&project-name=with-jest&repository-name=with-jest)
+> **Note:**
+> Tech stack: TS, Next.js, React, css modules, jest
+> I've used useContext instead of state managment libs because in my perspective this app doesn't require big complex state managment
+> I've used native img instead of next/Image because next images require certain domain names specified in the next config but due to API I can not specify it (cat API always uses different CDN)
+> I am using local storage for state persistence
 
 ## Run
 

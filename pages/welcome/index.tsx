@@ -55,6 +55,7 @@ export default function Welcome() {
           variant="outlined"
           onClick={handleClick}
           disabled={name === ""}
+          data-testid="play-btn"
         >
           PLAY
         </Button>

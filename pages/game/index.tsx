@@ -1,12 +1,19 @@
 import { useState, useContext } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 
-import { GameContext, DataItem } from "@state/GameContext";
-import ImageFetcher from "@components/ImageFetcher/ImageFetcher";
+import { GameContext } from "@state/GameContext";
 import { Counter } from "@components/Counter/Counter";
 import { fetchImageData } from "../../app/utils/fetchData";
 import { ImageI } from "types";
+
+const ImageFetcher = dynamic(
+  () => import("@components/ImageFetcher/ImageFetcher"),
+  {
+    ssr: false,
+  }
+);
 
 import styles from "@pages/index.module.css";
 
@@ -21,7 +28,8 @@ export default function Game({ data }: { data: ImageI[] }) {
   const handleExpire = () => {
     let newData = [...state.data];
 
-    newData[state.data.length - 1].score = score;
+    if (newData[state.data.length - 1])
+      newData[state.data.length - 1].score = score;
 
     setState({
       ...state,
@@ -32,7 +40,7 @@ export default function Game({ data }: { data: ImageI[] }) {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="game-page">
       <Head>
         <title>Fox game</title>
       </Head>
@@ -41,7 +49,7 @@ export default function Game({ data }: { data: ImageI[] }) {
         <h1 className={styles.title}>Click the Fox! Game</h1>
 
         <p className={styles.description}>
-          <span>Score: {score}</span>
+          <span data-testid="score">Score: {score}</span>
           <span>
             Time left:&nbsp;
             <Counter countdown={countdown} onExpire={handleExpire} />

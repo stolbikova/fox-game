@@ -43,7 +43,7 @@ export default function Scoreboard() {
 
   const current = state.data[state.data.length - 1];
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="scoreboard-page">
       <Head>
         <title>Fox game</title>
       </Head>
@@ -69,11 +69,17 @@ export default function Scoreboard() {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   className={current === row ? styles.activeRow : ""}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    data-testid={`name-${idx}`}
+                  >
                     {row.name}
                   </TableCell>
                   <TableCell align="right">{row.date}</TableCell>
-                  <TableCell align="right">{row.score}</TableCell>
+                  <TableCell align="right" data-testid={`score-${idx}`}>
+                    {row.score}
+                  </TableCell>
                 </TableRow>
               ))}
           </TableBody>
