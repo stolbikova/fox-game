@@ -1,7 +1,8 @@
-//
 import { useState, useEffect, useMemo } from "react";
-import { ImageType, ImageI } from "types";
+import Alert from "@mui/material/Alert";
+
 import { shuffle } from "@utils/shuffle";
+import { ImageType, ImageI } from "types";
 
 import styles from "./ImageFetcher.module.css";
 
@@ -67,7 +68,7 @@ export default function ImageFetcher({
   };
 
   if (page > 60) {
-    // You are too fast! Are you human?
+    return <Alert severity="warning">You are too fast! Are you human?</Alert>;
   }
 
   return (
