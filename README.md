@@ -2,6 +2,7 @@
 
 Start from welcome screen
 http://localhost:3000/welcome
+
 Play button is blocked until name is typed in the input field
 
 > **Note:**
@@ -27,4 +28,8 @@ yarn dev
 
 ```bash
 npm test
+```
+
+```bash
+yarn test
 ```
