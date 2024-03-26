@@ -14,9 +14,24 @@ Play button is blocked until name is typed in the input field
 
 > I am using local storage for state persistence
 
+## Prerequisites
+
+Node.js version 18+
+npm version 9+
+
 ## Fill env variables
 
 make .env.local file, copy .env.default file and put the file content to .env
+
+## Install dependencies
+
+```bash
+npm run install
+```
+
+```bash
+yarn install
+```
 
 ## Run
 
