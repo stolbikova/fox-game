@@ -7,9 +7,11 @@ import {
 } from "../../types";
 
 const urls = [
-  process.env.NEXT_PUBLIC_CAT_API,
-  process.env.NEXT_PUBLIC_DOG_API,
-  process.env.NEXT_PUBLIC_FOX_API,
+  process.env.NEXT_PUBLIC_CAT_API ||
+    "https://api.thecatapi.com/v1/images/search?mime_types=jpg&limit=4",
+  process.env.NEXT_PUBLIC_DOG_API ||
+    "https://dog.ceo/api/breeds/image/random/4",
+  process.env.NEXT_PUBLIC_FOX_API || "https://randomfox.ca/floof",
 ];
 const MAX_NUMBER_PER_BREED = 4;
 const NUMBER_OF_SAMPLES = 60;

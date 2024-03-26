@@ -14,6 +14,10 @@ Play button is blocked until name is typed in the input field
 
 > I am using local storage for state persistence
 
+## Fill env variables
+
+make .env.local file, copy .env.default file and put the file content to .env
+
 ## Run
 
 ```bash

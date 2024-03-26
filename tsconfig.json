@@ -36,6 +36,6 @@
     "**/*.tsx",
     "types.d.ts",
     ".next/types/**/*.ts"
-  ],
+, "tests/.ImageFetcher.tsx"  ],
   "exclude": ["node_modules"]
 }
