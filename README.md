@@ -17,6 +17,7 @@ Play button is blocked until name is typed in the input field
 ## Prerequisites
 
 Node.js version 18+
+
 npm version 9+
 
 ## Fill env variables
