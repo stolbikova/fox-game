@@ -22,7 +22,7 @@ npm version 9+
 
 ## Fill env variables
 
-make .env.local file, copy .env.default file and put the file content to .env
+make .env.local file, copy .env.default file and put the file content to .env.local
 
 ## Install dependencies
 
